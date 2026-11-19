@@ -9,6 +9,7 @@
     >
     <title>Pitt Town Christmas Lights Trail</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
 
   <body>
@@ -79,6 +80,57 @@
           </article>
         </div>
       </section>
+
+      <section class="submission-section" aria-labelledby="submission-title">
+        <div class="section-heading">
+            <p class="eyebrow">For Pitt Town residents</p>
+            <h2 id="submission-title">Add a home to the trail</h2>
+            <p>
+            Share your decorated home with the community. Your address will be
+            displayed publicly on the trail.
+            </p>
+        </div>
+
+        <form id="submission-form" class="submission-form">
+            <div class="form-field">
+            <label for="house-address">Street address</label>
+            <input
+                id="house-address"
+                name="address"
+                type="text"
+                autocomplete="street-address"
+                maxlength="120"
+                placeholder="For example, 10 Example Road, Pitt Town"
+                required
+            >
+            <p class="field-hint">Enter the address visitors should use.</p>
+            </div>
+
+            <label class="consent-field" for="address-consent">
+            <input
+                id="address-consent"
+                name="consent"
+                type="checkbox"
+                required
+            >
+            <span>
+                I live at this address or have permission to share it, and I agree
+                that it can be shown publicly on the Christmas lights trail.
+            </span>
+            </label>
+
+            <button class="submit-button" type="submit">Add to this preview</button>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="preview-list" aria-labelledby="preview-title">
+            <h3 id="preview-title">Homes added in this preview</h3>
+            <p id="empty-message" class="empty-message">
+            No homes have been added yet.
+            </p>
+            <ul id="house-list" class="house-list"></ul>
+        </div>
+        </section>
 
       <section class="about" id="about" aria-labelledby="about-title">
         <div class="about-mark" aria-hidden="true">✦</div>
