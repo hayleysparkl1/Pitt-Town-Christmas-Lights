@@ -576,3 +576,9 @@ h1 {
     align-items: start;
   }
 }
+
+.route-note {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

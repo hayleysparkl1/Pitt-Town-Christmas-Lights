@@ -15,6 +15,7 @@ const supabaseUrl = window.SUPABASE_URL;
 const supabaseKey = window.SUPABASE_PUBLISHABLE_KEY;
 const submissionsEndpoint = `${supabaseUrl}/rest/v1/lights_submissions`;
 const selectedHomes = [];
+const singleRoute = document.querySelector("#single-route");
 
 function hasSupabaseConfig() {
   return (
@@ -33,9 +34,46 @@ function createHeaders(extraHeaders = {}) {
   };
 }
 
+function buildMapsUrl(homes, originAddress = null) {
+  const finalHome = homes[homes.length - 1];
+  const mapsUrl = new URL("https://www.google.com/maps/dir/");
+
+  mapsUrl.searchParams.set("api", "1");
+  mapsUrl.searchParams.set("travelmode", "driving");
+  mapsUrl.searchParams.set("destination", finalHome.address);
+
+  if (originAddress) {
+    mapsUrl.searchParams.set("origin", originAddress);
+  }
+
+  const intermediateHomes = homes.slice(0, -1);
+
+  if (intermediateHomes.length > 0) {
+    mapsUrl.searchParams.set(
+      "waypoints",
+      intermediateHomes.map((home) => home.address).join("|")
+    );
+  }
+
+  return mapsUrl;
+}
+
+function makeMapsLink(url, label) {
+  const link = document.createElement("a");
+
+  link.className = "route-link";
+  link.href = url.toString();
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = label;
+
+  return link;
+}
+
 function renderSelectedTrail() {
   trailStopsList.replaceChildren();
   trailRoutes.replaceChildren();
+  singleRoute.replaceChildren();
 
   for (const home of selectedHomes) {
     const item = document.createElement("li");
@@ -53,45 +91,32 @@ function renderSelectedTrail() {
   trailStatus.textContent =
     "Stops are ordered by the order you selected them. You can uncheck a home to remove it.";
 
+  if (selectedHomes.length <= 9) {
+    const fullRouteUrl = buildMapsUrl(selectedHomes);
+    const fullRouteLink = makeMapsLink(
+      fullRouteUrl,
+      `Try all ${selectedHomes.length} stop${selectedHomes.length === 1 ? "" : "s"} in one Google Maps route`
+    );
+
+    singleRoute.append(fullRouteLink);
+  }
+
   const homesPerRoute = 4;
 
   for (let start = 0; start < selectedHomes.length; start += homesPerRoute) {
     const routeHomes = selectedHomes.slice(start, start + homesPerRoute);
     const previousHome = start > 0 ? selectedHomes[start - 1] : null;
-    const finalHome = routeHomes[routeHomes.length - 1];
-
-    const mapsUrl = new URL("https://www.google.com/maps/dir/");
-    mapsUrl.searchParams.set("api", "1");
-    mapsUrl.searchParams.set("travelmode", "driving");
-    mapsUrl.searchParams.set("destination", finalHome.address);
-
-    if (previousHome) {
-      mapsUrl.searchParams.set("origin", previousHome.address);
-    }
-
-    const intermediateHomes = routeHomes.slice(0, -1);
-
-    if (intermediateHomes.length > 0) {
-      mapsUrl.searchParams.set(
-        "waypoints",
-        intermediateHomes.map((home) => home.address).join("|")
-      );
-    }
-
+    const originAddress = previousHome ? previousHome.address : null;
+    const routeUrl = buildMapsUrl(routeHomes, originAddress);
     const firstStopNumber = start + 1;
     const lastStopNumber = start + routeHomes.length;
-    const link = document.createElement("a");
 
-    link.className = "route-link";
-    link.href = mapsUrl.toString();
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent =
+    const routeLabel =
       selectedHomes.length > homesPerRoute
         ? `Open stops ${firstStopNumber}–${lastStopNumber} in Google Maps`
         : "Open your trail in Google Maps";
 
-    trailRoutes.append(link);
+    trailRoutes.append(makeMapsLink(routeUrl, routeLabel));
   }
 }
 
