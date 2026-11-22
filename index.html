@@ -1,155 +1,165 @@
 <!doctype html>
 <html lang="en-AU">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-      name="description"
-      content="A community Christmas lights trail for Pitt Town, NSW."
-    >
-    <title>Pitt Town Christmas Lights Trail</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="config.js" defer></script>
-    <script src="script.js" defer></script>
-  </head>
 
-  <body>
-    <header class="site-header">
-      <a class="site-name" href="#home">Pitt Town Christmas Lights Trail</a>
-      <a class="header-link" href="#about">About the project</a>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A community Christmas lights trail for Pitt Town, NSW.">
+  <title>Pitt Town Christmas Lights Trail</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
 
-    <main id="home">
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-content">
-          <p class="eyebrow">Pitt Town, New South Wales</p>
-          <h1 id="page-title">A little Christmas magic, around the corner.</h1>
-          <p class="hero-copy">
-            Discover the homes bringing festive sparkle to Pitt Town and plan a
-            Christmas lights outing with family and friends.
-          </p>
-          <p class="status">
-            <span class="status-dot" aria-hidden="true"></span>
-            This year’s trail is being prepared
-          </p>
-        </div>
-        <div class="hero-decoration" aria-hidden="true">
-          <span class="light light-one"></span>
-          <span class="light light-two"></span>
-          <span class="light light-three"></span>
-          <span class="light light-four"></span>
-          <span class="light light-five"></span>
-          <span class="light light-six"></span>
-          <span class="light light-seven"></span>
-          <span class="light light-eight"></span>
-          <span class="light light-nine"></span>
-        </div>
-      </section>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="#home">Pitt Town Christmas Lights Trail</a>
+    <a class="header-link" href="#about">About the project</a>
+  </header>
 
-      <section class="how-it-works" aria-labelledby="how-title">
-        <div class="section-heading">
-          <p class="eyebrow">Your festive evening</p>
-          <h2 id="how-title">A simple way to enjoy the lights</h2>
-        </div>
+  <main id="home">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-content">
+        <p class="eyebrow">Pitt Town, New South Wales</p>
+        <h1 id="page-title">A little Christmas magic, around the corner.</h1>
+        <p class="hero-copy">
+          Discover the homes bringing festive sparkle to Pitt Town and plan a
+          Christmas lights outing with family and friends.
+        </p>
+        <p class="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          This year’s trail is being prepared
+        </p>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <span class="light light-one"></span>
+        <span class="light light-two"></span>
+        <span class="light light-three"></span>
+        <span class="light light-four"></span>
+        <span class="light light-five"></span>
+        <span class="light light-six"></span>
+        <span class="light light-seven"></span>
+        <span class="light light-eight"></span>
+        <span class="light light-nine"></span>
+      </div>
+    </section>
 
-        <div class="steps">
-          <article class="step">
-            <span class="step-number" aria-hidden="true">01</span>
-            <h3>Residents share</h3>
-            <p>
-              Residents can choose to submit their decorated home for the
-              community trail.
-            </p>
-          </article>
+    <section class="how-it-works" aria-labelledby="how-title">
+      <div class="section-heading">
+        <p class="eyebrow">Your festive evening</p>
+        <h2 id="how-title">A simple way to enjoy the lights</h2>
+      </div>
 
-          <article class="step">
-            <span class="step-number" aria-hidden="true">02</span>
-            <h3>You pick your stops</h3>
-            <p>
-              Choose the homes you’d like to visit and put together an evening
-              that suits you.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-number" aria-hidden="true">03</span>
-            <h3>Follow your trail</h3>
-            <p>
-              Open your chosen stops in Google Maps and enjoy a festive drive
-              around town.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="submission-section" aria-labelledby="submission-title">
-        <div class="section-heading">
-            <p class="eyebrow">For Pitt Town residents</p>
-            <h2 id="submission-title">Add a home to the trail</h2>
-            <p>
-            Share your decorated home with the community. Your address will be
-            displayed publicly on the trail.
-            </p>
-        </div>
-
-        <form id="submission-form" class="submission-form">
-            <div class="form-field">
-            <label for="house-address">Street address</label>
-            <input
-                id="house-address"
-                name="address"
-                type="text"
-                autocomplete="street-address"
-                maxlength="120"
-                placeholder="For example, 10 Example Road, Pitt Town"
-                required
-            >
-            <p class="field-hint">Enter the address visitors should use.</p>
-            </div>
-
-            <label class="consent-field" for="address-consent">
-            <input
-                id="address-consent"
-                name="consent"
-                type="checkbox"
-                required
-            >
-            <span>
-                I live at this address or have permission to share it, and I agree
-                that it can be shown publicly on the Christmas lights trail.
-            </span>
-            </label>
-
-            <button class="submit-button" type="submit">Submit for review</button>
-            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
-        </form>
-
-        <div class="preview-list" aria-labelledby="preview-title">
-            <h3 id="preview-title">Approved homes on the trail</h3>
-            <p id="empty-message" class="empty-message">
-            No approved homes are listed yet.
-            </p>
-            <ul id="house-list" class="house-list"></ul>
-        </div>
-        </section>
-
-      <section class="about" id="about" aria-labelledby="about-title">
-        <div class="about-mark" aria-hidden="true">✦</div>
-        <div>
-          <p class="eyebrow">Made for our town</p>
-          <h2 id="about-title">A community project, inspired by Pitt Town</h2>
+      <div class="steps">
+        <article class="step">
+          <span class="step-number" aria-hidden="true">01</span>
+          <h3>Residents share</h3>
           <p>
-            Every Christmas, local homes bring a little extra colour and joy to
-            our streets. This project is a simple way to help neighbours share
-            that tradition and make it easier for everyone to enjoy the lights.
+            Residents can choose to submit their decorated home for the
+            community trail.
           </p>
-        </div>
-      </section>
-    </main>
+        </article>
 
-    <footer class="site-footer">
-      <p>Pitt Town Christmas Lights Trail</p>
-      <p class="footer-note">A community project for the festive season</p>
-    </footer>
-  </body>
+        <article class="step">
+          <span class="step-number" aria-hidden="true">02</span>
+          <h3>You pick your stops</h3>
+          <p>
+            Choose the homes you’d like to visit and put together an evening
+            that suits you.
+          </p>
+        </article>
+
+        <article class="step">
+          <span class="step-number" aria-hidden="true">03</span>
+          <h3>Follow your trail</h3>
+          <p>
+            Open your chosen stops in Google Maps and enjoy a festive drive
+            around town.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="trail-builder" aria-labelledby="trail-title">
+      <div class="section-heading">
+        <p class="eyebrow">Plan your evening</p>
+        <h2 id="trail-title">Build your Christmas lights trail</h2>
+        <p>
+          Choose the homes you want to visit. Your stops will follow the order
+          you select them.
+        </p>
+      </div>
+
+      <div class="trail-panel">
+        <div class="available-homes">
+          <h3>Approved homes</h3>
+          <p id="approved-empty" class="empty-message">
+            Loading approved homes…
+          </p>
+          <ul id="approved-houses" class="house-list"></ul>
+        </div>
+
+        <div class="selected-trail">
+          <h3>Your stops</h3>
+          <p id="trail-empty" class="empty-message">
+            Select one or more homes to start your trail.
+          </p>
+          <ol id="trail-stops" class="trail-stops"></ol>
+          <div id="trail-routes" class="trail-routes"></div>
+          <p id="trail-status" class="form-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="submission-section" aria-labelledby="submission-title">
+      <div class="section-heading">
+        <p class="eyebrow">For Pitt Town residents</p>
+        <h2 id="submission-title">Add a home to the trail</h2>
+        <p>
+          Share your decorated home with the community. Your address will be
+          displayed publicly on the trail.
+        </p>
+      </div>
+
+      <form id="submission-form" class="submission-form">
+        <div class="form-field">
+          <label for="house-address">Street address</label>
+          <input id="house-address" name="address" type="text" autocomplete="street-address" maxlength="120"
+            placeholder="For example, 10 Example Road, Pitt Town" required>
+          <p class="field-hint">Enter the address visitors should use.</p>
+        </div>
+
+        <label class="consent-field" for="address-consent">
+          <input id="address-consent" name="consent" type="checkbox" required>
+          <span>
+            I live at this address or have permission to share it, and I agree
+            that it can be shown publicly on the Christmas lights trail.
+          </span>
+        </label>
+
+        <button class="submit-button" type="submit">Submit for review</button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-mark" aria-hidden="true">✦</div>
+      <div>
+        <p class="eyebrow">Made for our town</p>
+        <h2 id="about-title">A community project, inspired by Pitt Town</h2>
+        <p>
+          Every Christmas, local homes bring a little extra colour and joy to
+          our streets. This project is a simple way to help neighbours share
+          that tradition and make it easier for everyone to enjoy the lights.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Pitt Town Christmas Lights Trail</p>
+    <p class="footer-note">A community project for the festive season</p>
+  </footer>
+</body>
+
 </html>
